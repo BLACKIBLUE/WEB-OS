@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Creative CV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:locale" content="hu_HU" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="main" />
+	<meta property="og:site_name" content="Creative Cv" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="shortcut icon" type="image/jpg" href="https://cdn.icon-icons.com/icons2/159/PNG/256/cloud_weather_22376.png">
+    <script src="ujCv.js"></script>
+    <link rel="stylesheet" href="ujCv.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="//www.shift4shop.com/lp/cookie-law-generator/cookie.js?skin=cookielaw2&amp;link_color=a100f6&amp;animation=shake"></script>
+    <script type="text/javascript">
+        function mousehandler(e) {
+            var myevent = (isNS) ? e : event;
+            var eventbutton = (isNS) ? myevent.which : myevent.button;
+            if ((eventbutton == 2) || (eventbutton == 3)) return false;
+        }
+        document.oncontextmenu = mischandler;
+        document.onmousedown = mousehandler;
+        document.onmouseup = mousehandler;
+        function disableCtrlKeyCombination(e) {
+            var forbiddenKeys = new Array("a", "s", "c", "x","u");
+            var key;
+            var isCtrl;
+            if (window.event) {
+                key = window.event.keyCode;
+                //IE
+                if (window.event.ctrlKey)
+                    isCtrl = true;
+                else
+                    isCtrl = false;
+            }
+            else {
+                key = e.which;
+                //firefox
+                if (e.ctrlKey)
+                    isCtrl = true;
+                else
+                    isCtrl = false;
+            }
+            if (isCtrl) {
+                for (i = 0; i < forbiddenKeys.length; i++) {
+                    //case-insensitive comparation
+                    if (forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+    </script>    
+</head>
+<body oncontextmenu="return false"></body>
+<body>
+    <div class="loadingDiv">
+        <p class="loadigScreen">Loading</p>
+        <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div>    
+    <section class="loginScreen">
+        <p class="notGood">The password is incorrect, try it again!</p>
+        <div class="firstUser">
+            <div class="loginPictureOne"></div>
+            <div class="loginCircle"></div>
+            <p class="admin">Admin</p>
+            <input type="password" id="pw" name="password">
+        </div>
+        <div class="secondUser">
+            <div class="loginPictureSecond"></div>
+            <div class="loginCircleSecond"></div>
+            <p class="recruiter">Recruiter</p>
+        </div>
+    </section>
+    <div class="creativeCvDiv">
+        <i class="fas fa-folder firstFolder"></i>
+        <h1 class="creativeCv">creative cv</h1>
+    </div>    
+    <div class="os">
+        <div class="header">
+            <div class="closeIcons">
+                <div class="menu-circle red first"></div>
+                <div class="menu-circle yellow"></div>
+                <div class="menu-circle green"></div>
+            </div>
+            <div class="header-menu">
+                <a class="menu-link is-active about" href="#">About</a>
+                <a class="menu-link notify skills" href="#">Skills</a>
+                <a class="menu-link projects" href="#">Projects</a>
+                <a class="menu-link notify contacts" href="#">Contacts</a>
+            </div>
+            <form>
+                <input type="text" id="searchtxt" name="search" placeholder="Search (Inactive)">
+            </form>
+            </div>
+            <div class="photoDiv">
+                <div class="userPhoto"></div>
+            </div>
+            <div class="optionsDiv">
+                <div class="userPhoto secondUserPhoto"></div>
+                <p class="adminName">Admin</p>
+                <p class="recruiterName">Recruiter</p>
+                <div class="secondallAppsDiv">
+                    <i class="fab fa-app-store"></i>
+                    <a href="#" class="phoneButton">All apps</a>
+                </div>
+                <div class="secondupdatesDiv">
+                    <i class="fas fa-redo-alt"></i>
+                    <a href="#" class="phoneButton">Updates</a>
+                </div> 
+                <div class="callHimDiv">
+                    <i class="fas fa-phone-square-alt"></i>
+                    <a href="tel:+36301234567" class="phoneButton">phone</a>
+                </div>
+                <div class="writeHimDiv">
+                    <i class="fas fa-envelope-open"></i>
+                    <a href="mailto:youremail@outlook.com?subject=Job%20Alert" class="phoneButton">Email</a>
+                </div>
+                <div class="logoutDiv">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <a href="#" class="phoneButton">Sign out</a>
+                </div>
+            </div>
+            <div class="wrapper">
+                <div class="side-title">Apps</div>
+                <div class="allAppsDiv">
+                    <i class="fab fa-app-store"></i>
+                    <a href="#" class="allApps appsButton">All apps</a>
+                </div>
+                <div class="updatesDiv">
+                    <i class="fas fa-redo-alt"></i>
+                    <a href="#" class="allApps updatesButton">Updates</a>
+                </div>    
+            </div>  
+            <div class="mainWindow apps">
+                <a href="#" class="allApps appsHeader">All apps</a>
+                <div class="appsInfoDiv">
+                    <p class="groupInstalled">Installed</p>
+                    <div class="installedApps">
+                        <div class="phone">
+                            <i class="fas fa-phone-square"></i>
+                            <p class="phoneAppTitle">Phone</p>
+                            <a href="tel:+36301234567" class="open">Open</a>
+                        </div>
+                        <div class="mail">
+                            <i class="fas fa-envelope"></i>
+                            <p class="phoneAppTitle">Email</p>
+                            <a href="mailto:youremail@outlook.com?subject=Job%20Alert" class="open">Open</a>
+                        </div>
+                        <div class="whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                            <p class="phoneAppTitle">Whatsapp</p>
+                            <a href="https://api.whatsapp.com/send?phone=06301234567" class="open">Open</a>
+                        </div>
+                    </div>
+                    <div class="featuredAppsRight">
+                        <div class="github">
+                            <i class="fab fa-github faGithubAppIcon"></i>
+                            <p class="phoneAppTitle githubTitle">Github</p>
+                            <a href="https://github.com" target="_blank" class="open">Open</a>
+                        </div>
+                        <div class="linkedin">
+                            <i class="fab fa-linkedin-in faLinkedinAppIcon"></i>
+                            <p class="phoneAppTitle LinkedinTitle">Linkedin</p>
+                            <a href="https://www.linkedin.com" target="_blank" class="open">Open</a>
+                        </div>
+                        <div class="facebookDiv"></div>
+                    </div>
+                    <p class="appsInPlan">Featured apps</p>
+                    <div class="featuredApps firstfeaturedApps">
+                        <i class="fab fa-facebook"></i>
+                        <p class="facebookTitle">facebook</p>
+                        <p class="keepInTouch">Keep in touch through social media</p>
+                        <div class="border"></div>
+                    </div>
+                    <div class="featuredApps secondFeaturedApps">
+                        <i class="fab fa-github featuredGithubIcon"></i>
+                        <p class="facebookTitle featuredGithubTitle">Github</p>
+                        <p class="keepInTouch">Check my repositories</p>
+                        <div class="border"></div>
+                        <div class="install installGit">Install</div>
+                    </div>
+                    <div class="featuredApps ThirdFeaturedApps">
+                        <i class="fab fa-linkedin-in featuredLinkedinIcon"></i>
+                        <p class="facebookTitle">Linkedin</p>
+                        <p class="keepInTouch">Search for my profile & resume</p>
+                        <div class="border"></div>
+                        <div class="install installLinkedin">Install</div>
+                    </div>
+                </div>
+            </div>  
+            <div class="mainWindow updates">
+                <a href="#" class="allApps updatesHeader">Updates</a>
+                <div class="updatesLeftWrapper">
+                    <a href="#" class="iconTextUpdates">Website update</a>
+                </div>
+                <div class="UpdatesInfoDivFirst">
+                    <p class="textUpdates">This website is updated - Version 1.0</p>
+                </div>
+            </div> 
+            <div class="mainWindow aboutDiv">
+                <a href="#" class="allApps aboutHeader">About</a>
+                <div class="UpdatesInfoDiv">
+                    <p class="nicetoMeet">Hi! Nice to meet you.<br>I am a designer and developer with passion, based in Europe.</p>
+                    <p class="tryImagine">I enjoy turning complex problems into simple, beautiful and intuitive designs.<br>Now just sit down, take a deep breath and try to imagine what would you do if you had a developer available at your fingertips?</p>
+                </div>
+                <p class="creativeCvAbout">creative cv</p>
+            </div> 
+            <div class="mainWindow skillsDiv">
+                <a href="#" class="allApps skillsHeader">Skills</a>
+                <p class="pLanguages">Programming languages</p>
+                <div class="htmlDiv">
+                    <i class="fas fa-cog"></i>
+                    <p class="html">html</p>
+                    <i class="fas fa-chevron-down"></i>
+                    <code class="code">
+                        <span class="HomepageAnonHeaderHero_cr-R7KCv">&lt;h1</span>
+                        <span class="HomepageAnonHeaderHero_cy-105sh">class</span><span class="equal">=</span><span class="HomepageAnonHeaderHero_cg-11-jt">"dreamHeader"</span><span class="HomepageAnonHeaderHero_cr-R7KCv">&gt;</span><span class="equal">Why do I love coding ?</span><span class="HomepageAnonHeaderHero_cr-R7KCv">&lt;/h1&gt;</span>
+                        <br>
+                        <span class="HomepageAnonHeaderHero_cr-R7KCv">&lt;p</span>
+                        <span class="HomepageAnonHeaderHero_cy-105sh">class</span><span class="equal">=</span><span class="HomepageAnonHeaderHero_cg-11-jt">"reasonParagraph"</span><span class="HomepageAnonHeaderHero_cr-R7KCv">&gt;</span><span class="equal interActiveTyper">Because it's so interactive!</span><span class="HomepageAnonHeaderHero_cr-R7KCv">&lt;/p&gt;</span>
+                    </code>
+                </div>
+                <div class="cssDiv">
+                    <i class="fas fa-cog"></i>
+                    <p class="html">css</p>
+                    <i class="fas fa-chevron-down"></i>
+                    <code class="code">
+                        <span class="HomepageAnonHeaderHero_cr-R7KCv">.reasonPararaph</span>
+                        <span class="equal">{</span>
+                        <span class="cssBackground">background-color:</span>
+                        <span class="valueBackground">#a88038</span><span class="equalSecond">;</span>
+                        <span class="equalThird">}</span>
+                    </code>
+                </div>
+                <div class="jssDiv">
+                    <i class="fas fa-cog"></i>
+                    <p class="html">JS</p>
+                    <i class="fas fa-chevron-down"></i>
+                    <code class="code">
+                        <span class="HomepageAnonHeaderHero_cy-105sh">$</span><span class="equal">(</span><span class="document">document</span><span class="equal">).</span><span class="HomepageAnonHeaderHero_cy-105sh">ready</span><span class="equal">(</span><span class="function">function</span><span class="equal">() {</span>
+                        <div class="jsSecondLine">
+                            <span class="HomepageAnonHeaderHero_cy-105sh">$</span><span class="equal">(</span><span class="document">".reasonParagraph"</span><span class="equal">).</span><span class="HomepageAnonHeaderHero_cy-105sh">fadeOut</span><span class="equal">(</span><span class="function">"slow"</span><span class="equal">);</span>
+                        </div>    
+                        <div class="jsThirdLine">
+                            <span class="equal">});</span>
+                        </div>   
+                    </code>
+                </div>
+                <div class="phytonDiv">
+                    <i class="fas fa-cog"></i>
+                    <p class="html">Phyton</p>
+                    <i class="fas fa-chevron-down"></i>
+                    <code class="code">
+                        <span class="comment">#This source code welcomes you!</span>
+                        <div class="phytonSecondLine">
+                            <span class="print">print</span><span class="equal">(</span><span class="helloWorld">"Hello, nice to meet you!'</span><span class="equal">)</span>
+                        </div>
+                    </code>
+                </div>
+                <div class="javaDiv">
+                    <i class="fas fa-cog"></i>
+                    <p class="html">Java</p>
+                    <i class="fas fa-chevron-down"></i>
+                    <code class="code">
+                        <span class="document">public class</span>
+                        <span class="HomepageAnonHeaderHero_cy-105sh">Main</span>
+                        <span class="equal">{</span>
+                        <div class="javaSecondLine">    
+                            <span class="document">public static void</span> 
+                            <span class="equal">main(String[] args) {</span>
+                        </div>   
+                        <div class="javaThirdLine">       
+                            <span class="equal">System.out.println(</span><span class="HelloNiceTo">"Hello, nice to meet you!"</span><span class="equal">);</span>
+                        </div>   
+                        <div class="javaSecondLine"> 
+                            <span class="equal">}</span>
+                        </div>    
+                        <div class="javaFifthLine"> 
+                            <span class="equal">}</span>
+                        </div>        
+                    </code>
+                </div>
+                <div class="nextPageDiv">
+                    <p class="nextPage">Next page</p>
+                </div>
+            </div> 
+            <div class="mainWindow skillsDivSecond">
+                <a href="#" class="allApps skillsHeader">Skills</a>
+                <p class="pLanguages">Program skills</p>
+                <div class="installedAppsPrograms">
+                    <div class="photoshop">
+                        <i class="fas fa-camera"></i>
+                        <p class="phoneAppTitle PhotoshopAppTitle">Photoshop</p>
+                        <div class="circle"></div>
+                        <p class="updated">Updated</p>
+                        <p class="experience">4 Years of experience</p>
+                    </div>
+                    <div class="visualStudio">
+                        <p class="phoneAppTitle visualTitle">Visual Studio Code</p>
+                        <i class="fas fa-code"></i>
+                        <div class="circle"></div>
+                        <p class="updated">Updated</p>
+                        <p class="experience">2 Years of experience</p>
+                    </div>
+                    <div class="netbeans">
+                        <p class="phoneAppTitle netbeansTitle">Netbeans</p>
+                        <i class="fab fa-codepen"></i>
+                        <div class="circle"></div>
+                        <p class="updated">Updated</p>
+                        <p class="experience">2 Years of experience</p>
+                    </div>
+                    <div class="office">
+                        <p class="phoneAppTitle officeTitle">Microsoft Office</p>
+                        <i class="fas fa-desktop"></i>
+                        <div class="circle"></div>
+                        <p class="updated">Updated</p>
+                        <p class="experience">8 Years of experience</p>
+                    </div>
+                    <div class="sap">
+                        <p class="phoneAppTitle sapTitle">SAP</p>
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <div class="circle"></div>
+                        <p class="updated">Updated</p>
+                        <p class="experience">3 Years of experience</p>
+                    </div>
+                </div>
+                <p class="OsSkillsTitle">Os skills</p>
+                <div class="macOs">
+                    <i class="fab fa-apple"></i>
+                </div>
+                <div class="windows">
+                    <i class="fab fa-windows"></i>
+                </div>
+                <p class="languageSkills">Language skills</p>
+                <p class="german">German</p>
+                <p class="english">English</p>
+                <p class="hungarian">Hungarian</p>
+                <p class="creativeCvAbout">creative cv</p>
+            </div>
+            <div class="mainWindow projectsDiv">
+                <a href="#" class="allApps projectsHeader">Projects</a>
+                <div class="stcDiv">
+                    <i class="fas fa-folder secondFolder"></i>
+                    <h1 class="savaria">Savaria Tc</h1>
+                </div>   
+                <div class="next">
+                    <i class="fas fa-folder secondFolder"></i>
+                    <h1 class="savaria">Next Project</h1>
+                </div>  
+                <div class="nextInner">   
+                    <i class="fas fa-file-alt"></i>
+                    <h1 class="htmlFileName">index.html</h1>
+                </div>
+                <div class="nextInnerSecond">   
+                    <i class="fas fa-file"></i>
+                    <h1 class="htmlFileName">style.css</h1>
+                </div>
+                <div class="nextInnerThird">   
+                    <i class="fas fa-file-code"></i>
+                    <h1 class="htmlFileName">code.js</h1>
+                </div>
+                <p class="folderEmpty">This is the folder for your million dollar idea !</p>    
+                <p class="creativeCvAbout">creative cv</p>
+            </div>
+            <div class="mainWindow contactsDiv">
+                <a href="#" class="allApps contactsHeader">Contacts</a>
+                <p class="hesitate">Do not hesitate to ask me any questions</p>
+                <footer>
+                    <p class="nameFooter">John Doe</p>
+                    <p class="thanks">Thanks for visiting my webpage !</p>
+                    <div class="contactIcons">
+                        <a class="padingForIcons" href="#"><i class="fab fa-behance-square"></i></a>
+                        <a class="padingForIcons" href="#"><i class="fab fa-linkedin fa-linkedinSecond"></i></a>
+                        <a class="padingForIcons" href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <p class="contactme">Contacts</p>
+                    <div class="contactIconsSecond">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p class="location">Location: Berlin</p>
+                        <i class="fas fa-envelope envelopeSecond"></i>
+                        <p class="emailContacts">youremail@outlook.com</p>
+                    </div>
+                </footer>
+                <p class="creativeCvAbout">creative cv</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

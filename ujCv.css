@@ -1,0 +1,2304 @@
+/*basics*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} 
+/*variables*/ 
+:root {
+    --theme-bg-color: rgba(16 18 27 / 40%);
+    --border-color: rgba(113 119 144 / 25%);
+    --theme-color: #f9fafb;
+    --inactive-color: rgb(113 119 144 / 78%);
+    --body-font: "Poppins", sans-serif;
+    --hover-menu-bg: rgba(12 15 25 / 30%);
+    --content-title-color: #999ba5;
+    --content-bg: rgb(146 151 179 / 13%);
+    --button-inactive: rgb(249 250 251 / 55%);
+    --dropdown-bg: #21242d;
+    --dropdown-hover: rgb(42 46 60);
+    --popup-bg: rgb(22 25 37);
+    --search-bg:  #14162b;
+    --overlay-bg: rgba(36, 39, 59, 0.3);
+    --scrollbar-bg: rgb(1 2 3 / 40%);
+}
+body {
+    font-family: var(--body-font);
+    background-image: url(https://images.unsplash.com/photo-1496147539180-13929f8aa03a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+    width: 100vw;
+}
+/*loading*/
+.loadingDiv {
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(20px);
+    background-color: rgba(0,0,0,.8);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    transition: all .3s;
+}
+.lds-spinner {
+    color: official;
+    top: 35%;
+    display: inline-block;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    z-index: 2;
+}
+.loadigScreen{
+    position: absolute;
+    top: calc(35% + 88px);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+.lds-spinner div {
+    transform-origin: 40px 40px;
+    animation: lds-spinner 1.2s linear infinite;
+}
+.lds-spinner div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 37px;
+    width: 6px;
+    height: 18px;
+    border-radius: 20%;
+    background: #fff;
+}
+.lds-spinner div:nth-child(1) {
+    transform: rotate(0deg);
+    animation-delay: -1.1s;
+}
+.lds-spinner div:nth-child(2) {
+    transform: rotate(30deg);
+    animation-delay: -1s;
+}
+.lds-spinner div:nth-child(3) {
+    transform: rotate(60deg);
+    animation-delay: -0.9s;
+}
+.lds-spinner div:nth-child(4) {
+    transform: rotate(90deg);
+    animation-delay: -0.8s;
+}
+.lds-spinner div:nth-child(5) {
+    transform: rotate(120deg);
+    animation-delay: -0.7s;
+}
+.lds-spinner div:nth-child(6) {
+    transform: rotate(150deg);
+    animation-delay: -0.6s;
+}
+.lds-spinner div:nth-child(7) {
+    transform: rotate(180deg);
+    animation-delay: -0.5s;
+}
+.lds-spinner div:nth-child(8) {
+    transform: rotate(210deg);
+    animation-delay: -0.4s;
+}
+.lds-spinner div:nth-child(9) {
+    transform: rotate(240deg);
+    animation-delay: -0.3s;
+}
+.lds-spinner div:nth-child(10) {
+    transform: rotate(270deg);
+    animation-delay: -0.2s;
+}
+.lds-spinner div:nth-child(11) {
+    transform: rotate(300deg);
+    animation-delay: -0.1s;
+}
+.lds-spinner div:nth-child(12) {
+    transform: rotate(330deg);
+    animation-delay: 0s;
+}
+@keyframes lds-spinner {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+/*Login screen*/
+.loginScreen{
+    background-color: rgba(0,0,0,1);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(20px);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 1;
+}
+.firstUser{
+    position: relative;
+    left: calc(50vw - 200px);
+    height: 200px;
+    width: 150px;
+    top: 30%;
+    display: flex;
+    justify-content: center;
+    transition: all .2s;
+}
+.firstUserAddedClass{
+    left: 45vw;
+}
+.loginPictureOne{
+    height: 120px;
+    width: 120px;
+    background-image: url(https://images.unsplash.com/photo-1596796867443-48bb5d2ebaa0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80);
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.loginCircle{
+    position: absolute;
+    bottom: 41px;
+    left: 20px;
+    background-color: #00FF00;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    z-index: 1;
+}
+.admin{ 
+    position: absolute;
+    top: 140px;
+    font-size: 1.2rem;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    z-index: 0;
+}
+#pw{
+    position: absolute;
+    width: 150px;
+    height: 25px;
+    left: 0;
+    top: 90%;
+    border-radius: 1rem;
+    padding: 0 20px;
+    transition: all .2s;
+}
+input[type=text] {
+    font-family: Montserrat, sans-serif, Arial;
+    width: 100%;
+    border: 1px solid white;
+    box-sizing: border-box;
+    background-color: #f5f4f4;
+    color: black;
+}
+.notGood {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    left: 24%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Montserrat, sans-serif, Arial;
+    color: white;
+}
+.secondUser{
+    position: absolute;
+    height: 180px;
+    width: 150px;
+    top: 30%;
+    left: 50vw;
+    display: flex;
+    justify-content: center;
+    transition: all .2s;
+}
+.secondUserAddedClass{
+    left: 45vw;
+}
+.loginPictureSecond{
+    height: 120px;
+    width: 120px;
+    background-image: url(https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80);
+    background-size: cover;
+    background-position: center center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.loginCircleSecond{
+    position: absolute;
+    bottom: 21px;
+    left: 12px;
+    background-color: #00FF00;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+}
+.recruiter{
+    position: absolute;
+    top: 140px;
+    font-size: 1.2rem;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    font-weight: bold;
+    z-index: 0;
+    width: 100%;
+    padding-left: 10px;
+    text-align: center;
+}
+/*file icons*/
+.creativeCvDiv {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+}
+.firstFolder {
+    font-size: 3.5rem;
+    position: absolute;
+    top: 65px;
+    left: 65px;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    color: #7CD4FB;
+    cursor: pointer;
+    transition: all .4s;
+}
+.folderAddedClass {
+    font-size: 4rem;
+    position: absolute;
+    text-align: center;
+    color: #7CD4FB;
+    cursor: default;
+}
+.creativeCv {
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    top: 130px;
+    left: 50px;
+    text-align: center;
+    font-size: 0.7rem;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+}
+/*0.os*/
+.os {
+    position: absolute;
+    background-color: var(--theme-bg-color);
+    top: 5vh;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 70vw;
+    left: 15vw;
+    border-radius: 14px;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(20px);
+    font-size: 15px;
+    font-weight: 500;
+    transition: all .3s;
+}
+/*1.Header*/
+.osAddedClass {
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+}
+.osAddedClassSecond {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+.header {
+    position: relative;
+    flex-shrink: 0;
+    height: 58px;
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+    white-space: nowrap;
+}
+.closeIcons {
+    position: absolute;
+    height: 100%;
+    left: 1%;
+    width: 7%;
+    display: flex;
+    align-items: center;
+}
+.menu-circle {
+    width: 15px;
+    height: 15px;
+    background-color: #f96057;
+    border-radius: 50%;
+    margin-left: 10px;
+    flex-shrink: 0;
+    cursor: pointer;
+    display: inline-block;
+}
+.yellow {
+    background-color: #f8ce52;
+}
+.green {
+    background-color: #5fcf65;
+}
+.header-menu {
+    position: absolute;
+    height: 100%;
+    width: 30%;
+    top: 0;
+    left: 10%;
+    display: inline-block;
+    display: flex;
+    align-items: center;
+}
+.menu-link{
+    text-decoration: none;
+    display: inline-block;
+    height: 100%;
+    color: white;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5%;
+}
+.menu-link:hover {
+    border-bottom: 1px solid white;
+    transition: color .3s;
+}
+.skills {
+    left: 60px;
+}
+.third {
+    left: 120px;
+}
+.fourth {
+    left: 180px;
+}
+#searchtxt { 
+    position: absolute;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56.966 56.966' fill='%23717790c7'%3e%3cpath d='M55.146 51.887L41.588 37.786A22.926 22.926 0 0046.984 23c0-12.682-10.318-23-23-23s-23 10.318-23 23 10.318 23 23 23c4.761 0 9.298-1.436 13.177-4.162l13.661 14.208c.571.593 1.339.92 2.162.92.779 0 1.518-.297 2.079-.837a3.004 3.004 0 00.083-4.242zM23.984 6c9.374 0 17 7.626 17 17s-7.626 17-17 17-17-7.626-17-17 7.626-17 17-17z'/%3e%3c/svg%3e");
+    background-size: 14px;
+    background-repeat: no-repeat;
+    background-position: 16px 48%;
+    right: calc(3% + 100px);
+    top: 8px;
+    height: 40px;
+    width: 30%;
+    max-width: 50%;
+    padding-left: 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(0,0,0,.4);
+    border-radius: 4px;
+    box-shadow: 0 0 0 2px rgb(134 140 160 / 2%);
+    font-family: "Montserrat", sans-serif;
+    font-family: var(--body-font);
+    font-size: 15px;
+    padding: 0 20px 0 40px;
+}  
+.photoDiv {
+    height: 58px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 3%;
+}
+.userPhoto {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.adminAddedClass{
+    background-image: url(https://images.unsplash.com/photo-1596796867443-48bb5d2ebaa0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80);
+    background-size: cover;
+    background-position: center center;
+}
+.recruiterAddedClass{
+    background-image: url(https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80);
+    background-size: cover;
+    background-position: center center;
+}
+.optionsDiv{
+    position: absolute;
+    right: 0;
+    top: 58px;
+    height: 266px;
+    width: 200px;
+    background-color: rgba(0,0,0,1);
+    border-right: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    border-radius: 1rem;
+    z-index: 21;
+}
+.secondUserPhoto{
+    position: relative;
+    left: 10%;
+    top: 5%;
+}
+.recruiterName,
+.adminName{
+    position: absolute;
+    top: 9%;
+    width: 100%;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 25%;
+    padding-bottom: 13%;
+}
+.adminName{
+    padding-right: 35%;
+}
+.secondallAppsDiv{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    height: 40px;
+    display: flex;
+    align-items: center;  
+    cursor: pointer;
+    top: 25%;
+    border-bottom: 1px solid var(--border-color);
+}
+.secondallAppsDiv:hover,
+.secondupdatesDiv:hover,
+.logoutDiv:hover,
+.writeHimDiv:hover,
+.callHimDiv:hover{
+    background-color: #1877F2;
+    transition: all .3s;
+}
+.secondupdatesDiv{
+    position: absolute;
+    top: calc(25% + 40px);
+    width: 100%;
+    height: 40px;
+    left: 0;
+    display: flex;
+    align-items: center;  
+    cursor: default;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+}
+.callHimDiv{
+    position: absolute;
+    top: calc(25% + 80px);
+    width: 100%;
+    height: 40px;
+    left: 0;
+    display: flex;
+    align-items: center;  
+    cursor: default;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+}
+.writeHimDiv{
+    position: absolute;
+    top: calc(25% + 120px);
+    width: 100%;
+    height: 40px;
+    left: 0;
+    display: flex;
+    align-items: center;  
+    cursor: default;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+}
+.logoutDiv{
+    position: absolute;
+    top: calc(25% + 160px);
+    width: 100%;
+    height: 40px;
+    left: 0;
+    display: flex;
+    align-items: center;  
+    cursor: default;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+.phoneButton{
+    width: 100%;
+    position: absolute;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    color:#EFF1F4;
+    font-family: "Montserrat", sans-serif;
+    padding-left: 25%;  
+    text-decoration: none; 
+    font-size: 0.8rem;
+}
+/*left side*/
+.side-title {
+    color: var(--inactive-color);
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    height: 10%;
+    width: 20vw;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+}
+.wrapper {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+    height: calc(80vh + 39px);
+    width: 20%;
+    border-right: 1px solid var(--border-color);
+}
+.allAppsDiv {
+    position: absolute;
+    top: 10%;
+    width: 80%;
+    left: 10%;
+    height: 40px;
+    display: flex;
+    align-items: center;  
+    cursor: pointer;
+}
+.fa-app-store {
+    position: absolute;
+    width: 20%;
+    font-size: 25px;
+    text-align: right;
+    color: #EFF1F4;
+    padding-right: 2%;
+}
+.allApps {
+    position: absolute;
+    height: 30px;
+    left: 20%;
+    display: flex;
+    align-items: center;
+    color:#EFF1F4;
+    font-family: "Montserrat", sans-serif;
+    padding-left: 2%;  
+    text-decoration: none; 
+}
+.allAppsDiv:hover {
+    border-radius: 0.5rem;
+    background-color: rgba(255,255,255,.1);
+    transition: all .3s;
+}
+.updatesDiv {
+    position: absolute;
+    top: calc(10% + 50px);
+    width: 80%;
+    height: 40px;
+    left: 10%;
+    display: flex;
+    align-items: center;  
+    cursor: default;
+    cursor: pointer;
+}
+.fa-redo-alt,
+.fa-sign-out-alt,
+.fa-envelope-open,
+.fa-phone-square-alt {
+    position: absolute;
+    width: 19%;
+    font-size: 20px;
+    text-align: right;
+    color: #EFF1F4;
+    padding-right: 2%;
+}
+.fa-phone-square-alt{
+    font-size: 22px;
+}
+.updatesDiv:hover {
+    border-radius: 0.5rem;
+    background-color: rgba(255,255,255,.1);
+    transition: all .3s;
+}
+
+/*2. main window*/
+.mainWindow {
+    position: absolute;
+    height: 100%;
+    top: 58px;
+    left: 20%;
+    width: 80%;
+    transition: all .4s;
+}
+/*2.1All apps*/
+.appsHeader {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5%;
+    border-bottom: 1px solid var(--border-color);
+}
+.appsInfoDiv {
+    position: absolute;
+    left: 0;
+    top: 5%;
+    height: 90%;
+    width: 100%;
+    background-color: rgba(0,0,0,.4);
+}
+.groupInstalled {
+    position: relative;
+    top: 5%;
+    left: 5.5%;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    height: 10%;
+    width: 10%;
+    display: flex;
+    align-items: center;
+}
+.installedApps {
+    position: relative;
+    top: 5%;
+    left: 3%;
+    background-color: rgba(255,255,255,.1);
+    width: 45%;
+    height: 20%;
+    border-radius: 1rem;
+}
+.featuredAppsRight {
+    position: absolute;
+    top: 15%;
+    right: 3%;
+    background-color: rgba(255,255,255,.1);
+    width: 45%;
+    height: 20%;
+    border-radius: 1rem;
+}
+.phone:hover,
+.mail:hover,
+.whatsapp:hover,
+.linkedin:hover,
+.github:hover {
+    background-color: rgba(0,0,0,.2);
+    transition: all .3;
+}
+.phone,
+.mail,
+.whatsapp,
+.github,
+.linkedin {
+    position: relative;
+    width: 100%;
+    height: 33%;
+    border-bottom: 1px solid var(--border-color);
+}
+.whatsapp {
+    border: none;
+}
+.fa-phone-square,
+.fa-envelope,
+.fa-whatsapp,
+.faGithubAppIcon,
+.faLinkedinAppIcon {
+    position: relative;
+    top: 20%;
+    left: 9%;
+    font-size: 2rem;
+    color:#42E437;
+    align-items: center;
+}
+.fa-envelope {
+    font-size: 1.7rem;
+    color: white;
+}
+.fa-whatsapp {
+    color: #34D652;
+}
+.phoneAppTitle {
+    position: absolute;
+    left: 20%;
+    width: 50%;
+    height: 60%;
+    top: 20%;
+    color: white;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+}
+.open {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9D9097;
+    top: 20%;
+    width: 20%;
+    right: 10%;
+    height: 60%;
+    border: 1px solid #9D9097;
+    border-radius: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+.open:hover {
+    color: white;
+    border: none;
+    background-color: #1877F2;
+    transition: all .3s;
+}
+.appsInPlan {
+    position: relative;
+    top: 10%;
+    left: 5.5%;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    height: 10%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+.featuredApps {
+    position: relative;
+    top: 10%;
+    left: 3%;
+    height: 35%;
+    width: 30%;
+    background-color: rgba(255,255,255,.1);
+    border-radius: 1rem;
+    cursor: pointer;
+}
+.fa-facebook,
+.featuredGithubIcon,
+.featuredLinkedinIcon {
+    position: absolute;
+    top: 30%;
+    left: 28%;
+    height: 12%;
+    font-size: 2rem;
+    color:#1877F2;
+    align-items: center;
+}
+.facebookTitle {
+    position: absolute;
+    left: 43%;
+    width: 30%;
+    height: 12%;
+    top: 30%;
+    color: white;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+}
+.border {
+    position: absolute;
+    top: 50%;
+    background-color: #9D9097;
+    width: 80%;
+    height: 0.5px;
+    left: 10%;
+}
+.keepInTouch {
+    position: absolute;
+    top: 60%;
+    color: #F3F3F5;
+    width: 80%;
+    left: 10%;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.8rem;
+    font-family: "Montserrat", sans-serif;
+}
+.secondFeaturedApps {
+    position: absolute;
+    left: 35%;
+    top: 50%;
+}
+.fa-github {
+    color: #893C9C;
+}
+.ThirdFeaturedApps {
+    position: absolute;
+    left: 67%;
+    top: 50%;
+}
+.fa-linkedin-in {
+    color: #0077B5;
+}
+.install {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    bottom: 5%;
+    width: 20%;
+    right: 10%;
+    height: 10%;
+    border-radius: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #1877F2;;
+    cursor: pointer;
+}
+.install:hover {
+    background-color: rgba(0,0,0,0);
+    color: #999ba5; 
+    border: 1px solid #999ba5;
+    transition: all .3s;
+}
+/*2.2Updates*/
+.updatesHeader {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5%;
+    border-bottom: 1px solid var(--border-color);
+}
+.updatesLeftWrapper {
+    position: relative;
+    width: 20%;
+    left: 0;
+    top: 5%;
+    border-right: 1px solid var(--border-color);
+    height: 100%;
+}
+.UpdatesInfoDivFirst{
+    position: absolute;
+    left: 0%;
+    top: 5%;
+    height: 90%;
+    width: 100%;
+    background-color: rgba(0,0,0,.4);
+    display: flex;
+}
+.iconTextUpdates {
+    position: relative;
+    top: 40%;
+    height: 5%;
+    text-decoration: none;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    display: block;
+    font-size: 1rem;
+    text-align: center;
+    z-index: 1;
+}
+.textUpdates {
+    position: absolute;
+    top: 45%;
+    left: 8%;
+    width: 100%;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #EFF1F4;
+    font-family: "Montserrat", sans-serif;
+}
+/*3. About*/
+.creativeCvAbout {
+    position: absolute;
+    left: 94%;
+    bottom: 24.5%;
+    transform: rotate(-90deg);
+    background-color: white;
+    width: 10%;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+.aboutHeader{   
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5%;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+.UpdatesInfoDiv {
+    position: absolute;
+    left: 0%;
+    top: 5%;
+    height: 90%;
+    width: 100%;
+    background-color: rgba(0,0,0,.4);
+}
+.aboutWrapper {
+    position: absolute;
+    left: 10%;
+    height: 100px;
+    background-color: #00CC00;
+    width: 70px;
+}
+.nicetoMeet {
+    position: relative;
+    top: 35%;
+    width: 90%;
+    left: 5%;
+    font-family: 'Heebo', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: white;
+}
+.tryImagine {
+    font-family: 'Heebo', sans-serif;
+    padding-top: 1.25rem;
+    color: white;
+    position: relative;
+    top: 35%;
+    width: 90%;
+    left: 5%;
+}
+/*4.Services*/
+.skillsDiv{
+    background-color: rgba(0,0,0,.4);
+}
+.skillsHeader {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5%;
+    border-bottom: 1px solid var(--border-color);
+}
+.pLanguages {
+    position: relative;
+    top: 0%;
+    left: 5.5%;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    height: 10%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+.htmlDiv {
+    position: relative;
+    top: 0%;
+    width: 43%;
+    height: 20%;
+    background-color: rgba(255,255,255,.1);
+    left: 5%;
+    border-radius: 1rem;
+}
+.fa-cog {
+    font-size: 1.3rem;
+    color: #55565c;
+    position: relative;
+    left: 5%;
+    top: 10%;
+}
+.html {
+    position: absolute;
+    left: 12%;
+    top: 10%;
+    font-family: "Lato", sans-serif;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 900;
+    line-height: 14.3px;
+    color: white;
+}
+.fa-chevron-down{
+    position: absolute;
+    right: 5%;
+    top: 10%;
+    font-size: 1.3rem;
+    color: #55565c;
+}
+.code {
+    position: absolute;
+    top: 35%;
+    left: 5%;
+}
+.HomepageAnonHeaderHero_cr-R7KCv {
+    color: #a88038;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.HomepageAnonHeaderHero_cy-105sh {
+    color: #e1ca72;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.equal {
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.HomepageAnonHeaderHero_cg-11-jt {
+    color: #74b087;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.cssDiv {
+    position: absolute;
+    top: 40%;
+    width: 43%;
+    height: 20%;
+    background-color: rgba(255,255,255,.1);
+    left: 5%;
+    border-radius: 1rem;
+}
+.cssBackground {
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    width: 100%;
+    color: #9f8198;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.valueBackground {
+    position: absolute;
+    top: 120%;
+    left: 155%;
+    color: #e1ca72;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-right: .15em solid white;
+    overflow: hidden; 
+    white-space: nowrap; 
+    margin: 0 auto; 
+    animation: typingBackground 2s steps(15, end),blink-caret .90s step-end infinite;
+}
+/* The typing effect */
+@keyframes typingBackground {
+  from { width: 0 }
+  to { width: 45% }
+}
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: white; }
+}
+.equalSecond {
+    position: absolute;
+    top: 120%;
+    left: 195%;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.equalThird {
+    position: absolute;
+    top: 170%;
+    left: 0%;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.jssDiv {
+    position: absolute;
+    top: 65%;
+    width: 43%;
+    height: 20%;
+    background-color: rgba(255,255,255,.1);
+    left: 5%;
+    border-radius: 1rem;
+}
+.document {
+    color: #3e8ce6;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.function {
+    color: #df8e25;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.jsSecondLine {
+    position: relative;
+    left: 10%;
+}
+.phytonDiv{
+    position: absolute;
+    top: 15%;
+    width: 43%;
+    height: 20%;
+    background-color: rgba(255,255,255,.1);
+    right: 5%;
+    border-radius: 1rem;
+}
+.comment {
+    color: silver;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.print{
+    font-size: 0.8rem;
+    color: #893C9C;
+    font-weight: bold;
+}
+.helloWorld {
+    font-size: 0.8rem;
+    color: #74b087;
+    font-weight: bold;
+}
+.javaDiv {
+    position: absolute;
+    top: 40%;
+    width: 43%;
+    height: 20%;
+    background-color: rgba(255,255,255,.1);
+    right: 5%;
+    border-radius: 1rem;
+}
+.javaSecondLine {
+    position: relative;
+    left: 5%;
+}
+.javaThirdLine {
+    position: relative;
+    left: 10%;
+}
+.HelloNiceTo{
+    color: #e1ca72;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+.nextPageDiv {
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    width: 20%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+.nextPage {
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+    height: 40%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+}
+.nextPage:hover {
+    background-color: #00A8E8;
+    transition: all .3s;
+}
+.skillsDivSecond{
+    background-color: rgba(0,0,0,.4);
+}
+.installedAppsPrograms {
+    position: relative;
+    left: 5%;
+    background-color: rgba(255,255,255,.1);
+    width: 90%;
+    height: 30%;
+    border-radius: 1rem;
+}
+.photoshop,
+.visualStudio,
+.netbeans,
+.sap,
+.office {
+    position: relative;
+    width: 100%;
+    height: 20%;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+}
+.photoshop:hover,
+.visualStudio:hover,
+.netbeans:hover,
+.sap:hover,
+.office:hover,
+.macOs:hover,
+.windows:hover,
+.german:hover,
+.english:hover,
+.hungarian:hover {
+    background-color: rgba(0,0,0,.2);
+    transition: all .3;
+}
+.PhotoshopAppTitle,
+.visualTitle,
+.netbeansTitle,
+.sapTitle,
+.officeTitle {
+    left: 9%;
+}
+.fa-camera,
+.fa-code,
+.fa-codepen,
+.fa-desktop,
+.fa-cloud-upload-alt {
+    position: relative;
+    font-size: 1.5rem;
+    color: #690fb3;
+    left: 3%;
+}
+.fa-code {
+    left: 2.6%;
+    color: #1877F2;
+}
+.fa-codepen {
+    color: #E31F5B;
+}
+.fa-desktop {
+    color: #F26538;
+}
+.fa-cloud-upload-alt {
+    color: #00B2E9;
+}
+.sap{
+    border: none;
+}
+.circle{
+    position: absolute;
+    left: 40%;
+    top: calc(50% - 5px);
+    background-color: #00FF00;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.updated {
+    position: absolute;
+    left: 42%;
+    width: 50%;
+    height: 60%;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+}
+.experience {
+    position: absolute;
+    left: 80%;
+    width: 50%;
+    height: 60%;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+}
+.OsSkillsTitle {
+    position: absolute;
+    top: 48%;
+    left: 5%;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    height: 10%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+.macOs,
+.windows,
+.linux {
+    position: absolute;
+    top: 58%;
+    height: 10%;
+    width: 10%;
+    left: 5%;
+    background-color: rgba(255,255,255,.1);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.windows {
+    left: 16%;
+}
+.fa-apple,
+.fa-windows {
+    position: absolute;
+    font-size: 2rem;
+    color:white;
+    align-items: center;
+}
+.fa-windows {
+    color: #00A8E8;
+}
+.languageSkills {
+    position: absolute;
+    top: 68%;
+    left: 5%;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    height: 10%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+.german,
+.english,
+.hungarian {
+    position: absolute;
+    top: 78%;
+    height: 10%;
+    width: 10%;
+    left: 5%;
+    background-color: rgba(255,255,255,.1);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+.english {
+    left: 16%;
+}
+.hungarian {
+    left: 27%;
+}
+/*5.Projects*/
+.projectsDiv{
+    background-color: rgba(0,0,0,.4);
+}
+.projectsHeader{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5%;
+    border-bottom: 1px solid var(--border-color);
+}
+.stcDiv {
+    position: relative;
+    height: 15%;
+    width: 10%;
+    left: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.secondFolder {
+    font-size: 3.5rem;
+    position: absolute;
+    text-align: center;
+    color: #7CD4FB;
+    cursor: pointer;
+    transition: all .4s;
+}
+.savaria {
+    position: absolute;
+    width: 100%;
+    top: 75%;
+    text-align: center;
+    font-size: 0.7rem;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+}
+.next {
+    position: absolute;
+    top: 5%;
+    left: 13%;
+    height: 15%;
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.nextInner{
+    cursor: pointer;
+}
+.nextInner,
+.nextInnerSecond,
+.nextInnerThird{
+    position: absolute;
+    top: 5%;
+    left: 3%;
+    height: 15%;
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fa-file-alt,
+.fa-file,
+.fa-file-code{
+    font-size: 3.5rem;
+    position: absolute;
+    text-align: center;
+    color: white;
+    transition: all .4s;
+}
+.htmlFileName{
+    position: absolute;
+    width: 100%;
+    top: 80%;
+    text-align: center;
+    font-size: 0.7rem;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+}
+.nextInnerSecond{
+    left: 13%;
+}
+.nextInnerThird {
+    left: 23%;
+}
+.folderEmpty{
+    position: absolute;
+    top: 45%;
+    width: 100%;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #EFF1F4;
+    font-family: "Montserrat", sans-serif;
+}
+/*6.Contacts*/
+.contactsDiv{
+    background-color: rgba(0,0,0,.4);
+}
+.contactsHeader{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5%;
+    border-bottom: 1px solid var(--border-color);
+}
+.hesitate {
+    position: relative;
+    color: white;
+    top: 20%;
+    font-size: 40px;
+    width: 70%;
+    left: 15%;
+    text-align: center;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+}
+footer{
+    position: absolute;
+    width: 100%;
+    height: 45%;
+    bottom: 0;
+    border-top: 1px solid var(--border-color);
+}
+.nameFooter {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    line-height: 0px;
+    font-weight: 900;
+    color: white; 
+}
+.thanks {
+    position: absolute;
+    top: 39%;
+    left: 10%;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    width: 260px;
+}
+.contactIcons {
+    position: absolute;
+    width: 250px;
+    height: 10%;
+    left: 9.5%;
+    top: 46%;
+    display: flex;
+    align-items: center;
+}
+.fa-behance-square,
+.fa-linkedinSecond,
+.fa-twitter,
+.fa-map-marker-alt,
+.envelopeSecond{
+    font-size: 1.5rem;
+    color: white;
+}
+.padingForIcons{
+    padding: 2%;
+}
+.contactme {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    line-height: 0px;
+    font-weight: 900;
+    color: white; 
+    width: 260px;
+}
+.contactIconsSecond {
+    position: absolute;
+    left: 49.5%;
+    top: 36%;
+    width: 300px;
+    height: 150px;
+}
+.fa-map-marker-alt{
+    position: absolute;
+    padding-left: 2%;
+    top: 5%;
+}
+.location{
+    position: absolute;
+    left: 15%;
+    top: 7%;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+.envelopeSecond{
+    position: absolute;
+    top: 30%;
+    left: 1%;
+}
+.emailContacts {
+    position: absolute;
+    left: 15%;
+    top: 32%;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+.creativeCvFooter {
+    position: absolute;
+    left: 94%;
+    bottom: 55%;
+    transform: rotate(-90deg);
+    background-color: white;
+    width: 10%;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+@media (max-width: 1700px) {
+    .HomepageAnonHeaderHero_cr-R7KCv,
+    .HomepageAnonHeaderHero_cy-105sh,
+    .HomepageAnonHeaderHero_cg-11-jt,
+    .cssBackground,
+    .valueBackground,
+    .equal,
+    .equalSecond,
+    .equalThird,
+    .document,
+    .function,
+    .comment,
+    .print,
+    .helloWorld,
+    .HelloNiceTo {
+        font-size: 0.7rem;
+    }
+}
+@media (max-width: 1600px) {
+    .experience,
+    .updated,
+    .PhotoshopAppTitle,
+    .visualTitle,
+    .netbeansTitle,
+    .officeTitle,
+    .sapTitle {
+        font-size: 0.8rem;
+    }
+    .HomepageAnonHeaderHero_cr-R7KCv,
+    .HomepageAnonHeaderHero_cy-105sh,
+    .HomepageAnonHeaderHero_cg-11-jt,
+    .cssBackground,
+    .valueBackground,
+    .equal,
+    .equalSecond,
+    .equalThird,
+    .document,
+    .function,
+    .comment,
+    .print,
+    .helloWorld,
+    .HelloNiceTo {
+        font-size: 0.6rem;
+    }
+}
+@media (max-width: 1500px) {
+    .menu-link,
+    .appsHeader,
+    .side-title,
+    .allApps,
+    .groupInstalled,
+    .appsInPlan,
+    .phoneAppTitle,
+    .open,
+    .install,
+    .facebookTitle,
+    .keepInTouch,
+    .iconTextUpdates,
+    .textUpdates,
+    .pLanguages,
+    .html,
+    .nextPage,
+    .creativeCvAbout,
+    .creativeCvFooter,
+    .OsSkillsTitle,
+    .languageSkills,
+    .thanks,
+    .location,
+    .emailContacts {
+        font-size: 0.8rem;
+    }
+    .appsButton,
+    .updatesButton{
+        left: 25%;
+    }
+    .fa-phone-square,
+    .fa-envelope,
+    .fa-whatsapp {
+        font-size: 1.6rem;
+        top: 25%;
+    }
+    .fa-facebook,
+    .fa-linkedin-in,
+    .fa-github {
+        font-size: 1.6rem;
+    }
+    .fa-envelope{
+        font-size: 1.4rem;
+    }
+    .nicetoMeet {
+        font-size: 1.3rem;
+    }
+    .tryImagine {
+        font-size: 0.8rem;
+    }
+    .html{
+        left: 15%;
+    }
+    .HomepageAnonHeaderHero_cr-R7KCv,
+    .HomepageAnonHeaderHero_cy-105sh,
+    .HomepageAnonHeaderHero_cg-11-jt,
+    .cssBackground,
+    .valueBackground,
+    .equal,
+    .equalSecond,
+    .equalThird,
+    .document,
+    .function,
+    .comment,
+    .print,
+    .helloWorld,
+    .HelloNiceTo {
+        font-size: 0.6rem;
+    }
+    .experience,
+    .updated,
+    .PhotoshopAppTitle,
+    .visualTitle,
+    .netbeansTitle,
+    .officeTitle,
+    .sapTitle,
+    .savaria,
+    .htmlFileName {
+        font-size: 0.7rem;
+    }
+    .fa-camera,
+    .fa-code,
+    .fa-codepen,
+    .fa-desktop,
+    .fa-cloud-upload-alt,
+    .fa-apple,
+    .fa-windows,
+    .fa-behance-square,
+    .fa-linkedinSecond,
+    .fa-twitter,
+    .fa-map-marker-alt,
+    .envelopeSecond {
+        font-size: 1.3rem;
+    }
+    .german,
+    .hungarian,
+    .english {
+        font-size: 0.6rem;
+    }
+    .next,
+    .nextInnerSecond {
+        left: 16%;
+    }
+    .nextInnerThird{
+        left: 29%;
+    }
+    .hesitate{
+        font-size: 1.5rem;
+    }
+    .nameFooter,
+    .contactme {
+        font-size: 0.9rem;
+    }
+    .envelopeSecond {
+        top: 32%;
+        left: 3%;
+    }
+    .fa-map-marker-alt{
+        left: 1.5%;
+    }
+    .creativeCvAbout,
+    .creativeCvFooter{
+        width: 100px;
+        left: 92%;
+        height: 20px;
+    }
+}
+@media (max-width: 1300px) {
+    .os{
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+    .savaria{
+        top: 80%;
+    }
+    .creativeCvAbout,
+    .creativeCvFooter{
+        width: 100px;
+        left: 94%;
+        height: 20px;
+    }
+}
+@media (max-width: 1150px) {
+    .creativeCvAbout,
+    .creativeCvFooter{
+        visibility: hidden;
+    }
+}
+@media (max-width: 1000px) {
+    .header-menu{
+        left: 20%;
+    }
+    .firstUser{
+        left: calc(50vw - 150px);
+    }
+    .secondUser{ 
+        left: 50vw;
+    }
+    .admin,
+    .recruiter{
+        font-size: 0.8rem;
+    }
+    .loginCircle {
+        bottom: 46px;
+        left: 33px;
+    }
+    .loginCircleSecond {
+        bottom: 26px;
+        left: 25px;
+    }
+    .firstUserAddedClassSmall,
+    .backDivAddedClassSmall,
+    .secondUserAddedClassSmall{
+        left: calc(50vw - 75px);
+    }
+    .backDiv{
+        left: calc(50vw - 75px);
+    }
+    .macOs,
+    .windows,
+    .german,
+    .english,
+    .hungarian {
+        width: 12%;
+    }
+    .windows{
+        left: 20%;
+    }
+    .english{
+        left: 20%;
+    }
+    .hungarian {
+        left: 35%;
+    }
+    .creativeCvAbout,
+    .creativeCvFooter{
+        width: 100px;
+        left: 92%;
+        height: 20px;
+    }
+}
+@media (max-width: 900px) {
+    .creativeCvAbout,
+    .creativeCvFooter{
+        width: 100px;
+        left: 92%;
+        height: 20px;
+    }
+    .header-menu{
+        left: 20%;
+    }
+}
+@media (max-width: 800px) {
+    .header-menu{
+        left: 17%;
+    }
+    #searchtxt {
+        right: 13%;
+    }
+    .menu-link,
+    .appsHeader,
+    .side-title,
+    .allApps,
+    .groupInstalled,
+    .appsInPlan,
+    .phoneAppTitle,
+    .open,
+    .install,
+    .facebookTitle,
+    .keepInTouch,
+    .iconTextUpdates,
+    .textUpdates,
+    .pLanguages,
+    .html,
+    .nextPage,
+    .creativeCvAbout,
+    .creativeCvFooter,
+    .OsSkillsTitle,
+    .languageSkills,
+    .thanks,
+    .location,
+    .emailContacts,
+    .keepInTouch {
+        font-size: 0.6rem;
+    }
+    .fa-app-store,
+    .fa-redo-alt {
+        font-size: 1rem;
+    }
+    .fa-phone-square,
+    .fa-envelope,
+    .fa-whatsapp {
+        font-size: 1.2rem;
+        top: 25%;
+    }
+    .fa-facebook,
+    .fa-linkedin-in,
+    .fa-github {
+        font-size: 1.2rem;
+        top: 28%;
+    }
+    .installedApps{
+        width: 60%;
+        left: 5%;
+    }
+    .featuredAppsRight {
+        width: 60%;
+        left: 5%;
+        top: 40%;
+    }
+    .appsInPlan {
+        top: 30%;
+    }
+    .featuredApps{
+        height: 20%;
+    }
+    .firstfeaturedApps {
+        top: 30%;
+    }
+    .secondFeaturedApps,
+    .ThirdFeaturedApps {
+        top: 70%;
+    }
+    .border{
+        width: 50%;
+        left: 25%;
+    }
+    .nicetoMeet {
+        font-size: 1rem;
+    }
+    .tryImagine {
+        font-size: 0.8rem;
+    }
+    .htmlDiv,
+    .phytonDiv,
+    .cssDiv,
+    .javaDiv,
+    .jssDiv {
+        width: 90%;
+        height: 10%;
+    }
+    .cssDiv {
+        top: 27%;
+    }
+    .jssDiv{
+        top: 39%;
+        height: 12%;
+    }
+    .phytonDiv {
+        top: 53%;
+        height: 12%;
+    }
+    .javaDiv {
+        top: 67%;
+        height: 20%;
+    }
+    .nextPageDiv {
+        top: 84.5%;
+        width: 30%;
+    }
+    .HomepageAnonHeaderHero_cr-R7KCv,
+    .HomepageAnonHeaderHero_cy-105sh,
+    .HomepageAnonHeaderHero_cg-11-jt,
+    .cssBackground,
+    .valueBackground,
+    .equal,
+    .equalSecond,
+    .equalThird,
+    .document,
+    .function,
+    .comment,
+    .print,
+    .helloWorld,
+    .HelloNiceTo {
+        font-size: 0.5rem;
+    }
+    .experience,
+    .updated,
+    .PhotoshopAppTitle,
+    .visualTitle,
+    .netbeansTitle,
+    .officeTitle,
+    .sapTitle {
+        font-size: 0.6rem;
+    }
+    .savaria,
+    .htmlFileName {
+        font-size: 0.5rem;
+    }
+    .PhotoshopAppTitle,
+    .visualTitle,
+    .netbeansTitle,
+    .officeTitle,
+    .sapTitle {
+        left: 11%;
+    }
+    .fa-camera,
+    .fa-code,
+    .fa-codepen,
+    .fa-desktop,
+    .fa-cloud-upload-alt,
+    .fa-apple,
+    .fa-windows,
+    .fa-behance-square,
+    .fa-linkedinSecond,
+    .fa-twitter,
+    .fa-map-marker-alt,
+    .envelopeSecond {
+        font-size: 1.3rem;
+    }
+    .experience {
+        left: 75%;
+    }
+    .updated {
+        left: 44%;
+    }
+    .macOs {
+        width: 20%;
+    }
+    .windows {
+        width: 20%;
+        left: 30%;
+    }
+    .german,
+    .english,
+    .hungarian {
+        width: 20%;
+    }
+    .english {
+        left: 30%;
+    }
+    .hungarian {
+        left: 55%;
+    }
+    .hesitate {
+        font-size: 1rem;
+    }
+    .envelopeSecond {
+        top: 30%;
+    }
+    .creativeCvAbout,
+    .creativeCvFooter {
+        width: 100px;
+        left: 91%;
+        height: 20px;
+    }
+}
+@media (max-width: 500px) {
+    .wrapper{
+        display: none;
+    }
+    #searchtxt{
+        right: calc(50vw - 27%);
+        width: 50%;
+    }
+    .header-menu {
+        top: 58px;
+        left: 0;
+        width: 100%;  
+        border-bottom: 1px solid var(--border-color);
+        z-index: 20;
+    }
+    .menu-link{
+        padding: 0 7%;
+    }
+    .mainWindow {
+        left: 0;
+        width: 100%;
+    }
+    .appsHeader {   
+        top: 58px;
+        padding-left: 7%;
+    }
+    .appsInfoDiv {
+        top: 95px;
+        width: 100%;
+        height: 90%;
+    }
+    .groupInstalled {
+        top: 0;
+    }
+    .installedApps{
+        top: 0;
+    }
+    .installedApps,
+    .featuredAppsRight {
+        width: 90vw;
+    }
+    .featuredAppsRight {
+        top: 33%;
+        height: 100px;
+    }
+    .github,
+    .linkedin {
+        height: 50%;
+    }
+    .linkedin {
+        border: none;
+    }
+    .appsInPlan {
+        top: 16%;
+    }
+    .firstfeaturedApps {
+        top: 16%;
+        border-radius: 0rem;
+    }
+    .secondFeaturedApps,
+    .ThirdFeaturedApps {
+        top: 56%;
+        border-radius: 0rem;
+    }
+    .fa-facebook,
+    .featuredGithubIcon,
+    .featuredLinkedinIcon {
+        top: 10%;
+        left: 41%;
+    }
+    .facebookTitle {
+        position: relative;
+        left: 0;
+        width: 100%;
+        padding-left: 30%;
+    }
+    .featuredGithubTitle{
+        left: 3%;
+    }
+    .install {
+        width: 40%;
+    }
+    .updatesHeader {
+        top: 58px;
+        padding-left: 7%;
+    }
+    .UpdatesInfoDiv {
+       background-color: rgba(0,0,0,0);
+    }
+    .UpdatesInfoDivFirst {
+        top: 98px;
+        height: 80%;
+        background-color: rgba(0,0,0,0);
+    }
+    .appsInfoDiv,
+    .skillsDiv,
+    .skillsDivSecond,
+    .projectsDiv,
+    .contactsDiv{  
+        background-color: rgba(0,0,0,0);
+    }
+    .updatesLeftWrapper {
+        display: none;
+    }
+    .textUpdates {
+        left: 0;
+        font-size: 1rem;
+    }
+    .UpdatesInfoDiv {
+        top: 98px;
+    }
+    .aboutHeader,
+    .skillsHeader,
+    .projectsHeader,
+    .contactsHeader {
+        top: 58px;
+        padding-left: 7%;
+    }
+    .nicetoMeet {
+        top: 25%;
+        width: 85%;
+        left: 5%;
+    }
+    .tryImagine {
+        top: 25%;
+        left: 5%;
+        text-align: justify;
+    }
+    .pLanguages {
+        display: none;
+    }
+    .htmlDiv {
+        top: 10%;
+    }
+    .installedAppsPrograms {
+        top: 10%;
+    }
+    .fa-camera,
+    .fa-code,
+    .fa-codepen,
+    .fa-desktop,
+    .fa-cloud-upload-alt,
+    .fa-apple,
+    .fa-windows,
+    .fa-behance-square,
+    .fa-linkedinSecond,
+    .fa-twitter,
+    .fa-map-marker-alt,
+    .envelopeSecond {
+        font-size: 1rem;
+    }
+    .experience,
+    .updated,
+    .PhotoshopAppTitle,
+    .visualTitle,
+    .netbeansTitle,
+    .officeTitle,
+    .sapTitle  {
+        font-size: 0.45rem;
+        left: 13%;
+    }
+    .circle{
+        left: 46%;
+        top: calc(50% - 2.5px);
+        height: 5px;
+        width: 5px;
+    }
+    .updated{
+        width: 30%;
+        left: 49%;
+    }
+    .experience {
+        left: 70%;
+        width: 30%;
+    }
+    .macOs{
+        width: 20%;
+    }
+    .stcDiv {
+        top: 10%;
+        left: 10%;
+    }
+    .next,
+    .nextInner,
+    .nextInnerSecond,
+    .nextInnerThird {
+        top: 15%;
+    }
+    .next,
+    .nextInnerSecond{
+        left: 35%;
+    }
+    .nextInner{
+        left: 10%;
+    }
+    .nextInnerThird {
+        left: 60%;
+    }
+    .savaria{
+        width: 100px;
+    }
+    .hesitate{
+        top: 20%;
+    }
+    footer{
+        height: 60%;
+        border: none;
+    }
+    .nameFooter {
+        position: relative;
+        top: 7%;
+        width: 100%;
+        left: 15%;
+        height: 10%;
+        font-size: 20px;
+    }
+    .thanks{
+        position: relative;
+        top: 7%;
+        width: 100%;
+        left: 15%;
+        height: 10%;
+    }
+    .contactIcons{
+        top: 7%;
+        width: 22%;
+        left: 13%;
+        position: relative;
+    }
+    .padingForIcons{
+        padding: 10px;
+    }
+    .contactme {
+        position: relative;
+        top: 14%;
+        width: 100%;
+        left: 0;
+        left: 15%;
+        height: 10%;
+        font-size: 20px;
+    }
+    .contactIconsSecond{
+        top: 10%;
+        width: 100%;
+        left: 0;
+        position: relative;
+        bottom: 0;
+    }
+    .fa-map-marker-alt,
+    .envelopeSecond {
+        visibility: hidden;
+    }
+}
